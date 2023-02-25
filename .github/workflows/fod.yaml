@@ -25,6 +25,7 @@ on:
     branches:
       - dev
       - fod
+      - debricked
 
 jobs:
   FoD-SAST-Scan:
@@ -49,6 +50,7 @@ jobs:
           java-version: 17
           distribution: 'temurin'
 
+      
       # Prepare source+dependencies for upload. The default example is for a Maven project that uses pom.xml.
       # TODO: Update PACKAGE_OPTS based on the ScanCentral Client documentation for your project's included tech stack(s). Helpful hints:
       #   ScanCentral Client will download dependencies for maven (-bt mvn) and gradle (-bt gradle).
@@ -57,9 +59,7 @@ jobs:
       #   For other build tools, add your build commands to download necessary dependencies and prepare according to Fortify on Demand Packaging documentation.
       #   ScanCentral Client documentation is located at https://www.microfocus.com/documentation/fortify-software-security-center/
       - name: Download Fortify ScanCentral Client
-        uses: fortify/gha-setup-scancentral-client@v1   
-        with:
-          version: 22.2.1
+        uses: fortify/gha-setup-scancentral-client@98d581414b4b3b314ed9dfe1df0a8b8363b086c0
       - name: Package Code + Dependencies
         run: scancentral package $PACKAGE_OPTS -oss -o package.zip
         env:
@@ -98,3 +98,8 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: ./gh-fortify-sast.sarif
+
+      - name: debricked standalone
+      - uses: debricked/actions/scan@v1
+        env:
+          DEBRICKED_TOKEN: ${{ secrets.DEBRICKED_TOKEN }}
