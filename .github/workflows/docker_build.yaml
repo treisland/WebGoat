@@ -32,5 +32,5 @@ jobs:
       run: docker pull maven:3.9.0-amazoncorretto-17
 
     - name: Build with Maven
-      run: docker run --rm -v ${GITHUB_WORKSPACE}:/app -w /app maven:3.9.0-amazoncorretto-17 mvn clean install dependency:tree -DoutputFile=.debricked-maven-dependencies.tgf -DoutputType=tgf -DskipTests
+      run: docker run --rm -v ${GITHUB_WORKSPACE}/:/app -w /app maven:3.9.0-amazoncorretto-17 mvn clean install dependency:tree -DoutputFile=.debricked-maven-dependencies.tgf -DoutputType=tgf -DskipTests
 
