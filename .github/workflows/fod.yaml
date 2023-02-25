@@ -59,7 +59,9 @@ jobs:
       #   For other build tools, add your build commands to download necessary dependencies and prepare according to Fortify on Demand Packaging documentation.
       #   ScanCentral Client documentation is located at https://www.microfocus.com/documentation/fortify-software-security-center/
       - name: Download Fortify ScanCentral Client
-        uses: fortify/gha-setup-scancentral-client@98d581414b4b3b314ed9dfe1df0a8b8363b086c0
+        uses: fortify/gha-setup-scancentral-client@v1   
+        with:
+          version: 22.2.1
       - name: Package Code + Dependencies
         run: scancentral package $PACKAGE_OPTS -oss -o package.zip
         env:
