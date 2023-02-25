@@ -64,3 +64,8 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: ./gh-fortify-sast.sarif
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: fortify-sast
+          path: ./gh-fortify-sast.sarif
