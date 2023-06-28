@@ -13,7 +13,7 @@ steps:
 
 - task: NexusIqPipelineTask@1
   inputs:
-    nexusIqService: 'nexus-iq-server'
+    nexusIqService: 'Nexus-IQ'
     organizationId: 'sandbox'
     applicationId: 'WebGoat'
     stage: 'Build'
