@@ -1,0 +1,19 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- dev
+
+pool:
+  name: Default
+
+steps:
+
+- task: NexusIqPipelineTask@1
+  inputs:
+    nexusIqService: 'nexus-iq-server'
+    organizationId: 'sandbox'
+    applicationId: 'WebGoat'
+    stage: 'Build'
