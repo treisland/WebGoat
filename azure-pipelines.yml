@@ -16,4 +16,11 @@ steps:
     nexusIqService: 'Nexus-IQ'
     organizationId: 'c49022c7d52e44acb6d6bb9c3dc2ccbf'
     applicationId: 'WebGoat'
+    stage: 'Build'
+- task: NexusIqPipelineTask@1
+  inputs:
+    nexusIqService: 'Nexus-IQ'
+    organizationId: 'c49022c7d52e44acb6d6bb9c3dc2ccbf'
+    applicationId: 'WebGoat'
     stage: 'source'
+    scanTargets: '$(Build.SourcesDirectory)'
