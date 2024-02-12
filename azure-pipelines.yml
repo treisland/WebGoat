@@ -29,3 +29,4 @@ steps:
     OpenSourceComponent: true
     BuildCommand: 'clean install dependency:tree -DoutputFile=debricked-maven-dependencies.tgf -DoutputType=tgf'
     BuildFile: 'pom.xml'
+    PolicyFailAction: '0'
