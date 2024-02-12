@@ -1,0 +1,31 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- dev
+
+pool:
+  name: Default
+
+steps:
+- task: FortifyOnDemandStatic@8
+  inputs:
+    FortifyProjects: '$(Build.SourcesDirectory)'
+    FodConnection: 'FOD-FranklinBank24'
+    ReleaseOptions: '0'
+    ReleaseId: 1105947
+    EntitlementSelection: '0'
+    Entitlement: 12880
+    EntitlementPreference: '1'
+    OverrideScanSettings: '1'
+    AssessmentTypeId: '273'
+    InProgressScanActionType: '2'
+    RemediationScanPreference: '2'
+    BuildType: 'mvn'
+    TechnologyStackJavaOne: '7'
+    LanguageLevelJava: '31'
+    OpenSourceComponent: true
+    BuildCommand: 'clean install dependency:tree -DoutputFile=debricked-maven-dependencies.tgf -DoutputType=tgf'
+    BuildFile: 'pom.xml'
