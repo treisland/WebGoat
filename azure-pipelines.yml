@@ -19,14 +19,10 @@ steps:
     EntitlementSelection: '0'
     Entitlement: 12880
     EntitlementPreference: '1'
-    OverrideScanSettings: '1'
-    AssessmentTypeId: '273'
+    OverrideScanSettings: '2'
     InProgressScanActionType: '2'
     RemediationScanPreference: '2'
     BuildType: 'mvn'
-    TechnologyStackJavaOne: '7'
-    LanguageLevelJava: '31'
-    OpenSourceComponent: true
     BuildCommand: 'clean install -DskipTests=true dependency:tree -DoutputFile=debricked-maven-dependencies.tgf -DoutputType=tgf'
     BuildFile: 'pom.xml'
     PolicyFailAction: '0'
